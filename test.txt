@@ -1,8 +1,0 @@
-test:
-
-git status
-
-git commit -a -m "just added a random file to test git status"
-
-git status
-
