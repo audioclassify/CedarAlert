@@ -18,7 +18,7 @@ The application runs as a service which starts on boot and restarts on error.
 
 This DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind.
 
-This software is covered by the [GNU General Public License v3.0](https://github.com/WongKinYiu/yolov9/LICENSE).
+This software is covered by the [GNU General Public License v3.0](https://github.com/WongKinYiu/LICENSE).
 
 
 ### Install Libraries and Create CedarAlert Python3 Environment
