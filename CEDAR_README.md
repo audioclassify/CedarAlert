@@ -8,7 +8,9 @@ The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolo9-c.pt' model 
 
 The 'yolo9-cfire.pt' model (weights) is from [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection].
 
-The application can write to a log file and also to a SQLite3 database.
+The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
+
+The application can optionally write to a log file and also to a SQLite3 database.
 
 User specific variables are defined in 'cedar_config.json', which must be updated for the application to run.
 
