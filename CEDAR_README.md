@@ -39,7 +39,7 @@ python3 -m venv CedarAlert
 
 # use full path for systemd and cron
 
-/home/cedar/environments/source/CedarAlert/bin/activate
+# /home/cedar/environments/source/CedarAlert/bin/activate
 
 ```
 ### Install CedarAlert
