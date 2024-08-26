@@ -1,6 +1,6 @@
 ## CedarAlert - YOLOv9 Object and Fire Detection for IP Security Cameras in Python3
 
-The CedarAlert application was developed, tested, and is in use on an Ubuntu 22.04.04 X86_64 desktop PC.
+The CedarAlert application was developed, tested, and is in use on an Ubuntu 22.04.4 X86_64 desktop PC.
 
 The user is 'cedar' and the home path is '/home/cedar'. Your user and home path may likely be different.
 
