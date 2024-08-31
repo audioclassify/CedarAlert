@@ -200,3 +200,14 @@ The 'alert_sms_process()' connects to an email server via SSL and attaches the i
 The application writes to a log file and also to a SQLite3 database by default. Eithe can be disabled with 'disable_log' or 'disable_sqlite3'.
 
 The application runs as a service which starts on boot and restarts on error. 'CedarAlert.service' and 'CedarAlert.sh' must be modified with your '/home/YOURUSER'.
+
+### FTP Server
+
+An easy method to obtain a FTP server is by installing [FileZilla Server](https://filezilla-project.org/download.php?type=server). On Ubuntu 22.04.4, after you have downloaded FileZilla Server, it can be installed with:
+'''
+# check the filename of the download
+sudo dpkg -i FileZilla_Server_1.8.2_x86_64-linux-gnu.deb
+'''
+It is a good idea to specify an admin password.
+
+FileZilla Server can be configured via the GUI interface listed in 'Show Applications'.
