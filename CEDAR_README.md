@@ -24,7 +24,7 @@ The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com
 cd ~
 sudo apt update
 sudo apt upgrade
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-env
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-env git
 
 # clone this repository
 git clone https://github.com/audioclassify/CedarAlert.git
@@ -195,6 +195,9 @@ Results saved to runs/detect/CedarAlert353
 ```
 When a new image arrives in the local desktop PC FTP folder structure ('cedar_ftp_path'), the 'ImageHandler()' send the image to 'cedar_detect_dual.main(opt)' via a multiprocessing pool for analysis for objects (yolov9-s-converted.pt) and fire (yolov9-s-fire-converted.pt).
 
-Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to de-couple the image from the alert functions since the alert functions depend upon a remote mail server.
+Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to decouple the image from the alert functions since the alert functions depend upon a remote mail server.
 
+The 'alert_email_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_email_process()' defaults to 3 attempts and will log failed attempts.
+
+The 'alert_sms_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal, so you may need to change the 'alert_sms_process()' code if you have a different wireless carrieror wish to use a SMS service.
 
