@@ -1,14 +1,24 @@
-## CedarAlert - YOLOv9 Object and Fire Detection for IP Security Cameras in Python3
+## CedarAlert - DIY YOLOv9 Object and Fire Detection for IP Security Cameras in Python
 
-The CedarAlert application was developed on, and has been tested on, two Ubuntu 22.04.4 X86_64 desktop PCs *without GPUs or TPUs for AI in use*:
-* Intel NUC5i7RYH (5th generation Intel i7 CPU) with 16 GB RAM and 500 GB SSD)
-* Beelink Mini S12 (12th generation Intel N100 CPU) with 16 GB RAM and 500 GB SSD
+The purpose of this DIY project is to enhance four low cost outdoor motion detecting security cameras (Amcrest IP4M-1026W) with object and fire detection in a rural high risk fire area, and to provide email alerts with the image in question plus SMS alerts via the Verizon Wireless SMS portal.
+
+The four Amcrest cameras are configured to take three photos two seconds apart at each motion event, and send the images via FTP to a local desktop PC for AI analysis and storage.
+
+This DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind.
+
+This software is covered by the [GNU General Public License v3.0](https://github.com/WongKinYiu/yolov9/blob/main/LICENSE.md) and any other licenses from other open source code referenced.
+
+The CedarAlert application was developed on, and has been tested on, two Ubuntu 22.04.4 X86_64 desktop PCs *without GPUs or TPUs for AI in use* that by today's standard may be considered as low performance:
+* Intel NUC5i7RYH (5th generation Intel i7 CPU) with 16 GB RAM and 500 GB SSD
+* Beelink Mini S12 (12th generation Intel N100 CPU) with 16 GB RAM and 500 GB SSD (about $160 USD)
 
 The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be set (e.g. your SMTP email server domain name 'cedar_email_server').
 
+The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) and [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection].
+
 The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
-The 'yolo9-s-fire-converted.pt' model (weights) is based the  [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection] and was created by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with this command:
+The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection] and was created by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with this command:
 
 ```
 cd ~
@@ -36,6 +46,7 @@ pip install -r cedar_requirements.txt
 # check python and pip versions
 python -V
 # Python 3.10.12
+
 pip -V
 # pip 22.0.2 from /home/cedar/environments/CedarAlert/lib/python3.10/site-packages/pip (python 3.10)
 
@@ -54,16 +65,9 @@ python train_dual.py \
 --epochs 500 \
 --close-mosaic 15
 ```
-
-The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
-
 The application can optionally write to a log file and also to a SQLite3 database.
 
 The application runs as a service which starts on boot and restarts on error. 'CedarAlert.service' and 'CedarAlert.sh' must be modified with '/home/YOURUSER'.
-
-This DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind.
-
-This software is covered by the [GNU General Public License v3.0](https://github.com/WongKinYiu/yolov9/blob/main/LICENSE.md) and any other licenses from other open source code referenced.
 
 ### Verify CedarAlert Object Detecton with yolov9-s-converted.pt (COCO model)
 
@@ -178,5 +182,19 @@ image 1/1 /home/cedar/CedarAlert/fire/fire/train/images/114.jpg: 480x640 11 fire
 Speed: 1.4ms pre-process, 349.0ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640) ./fire/yolov9-s-fire-converted.pt
 Results saved to runs/detect/CedarAlert353
 ```
+### Verify Application For Analyzing New Images from Cameras via FTP
+```
+(CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_watch_object_fire_mp_pool.py
+=== __main__ START at 2024-08-31_11-41-51-785716
+=== __main__ cedar_ftp_path: /home/cedar/ftp
+=== __main__ cedar_log: /home/cedar/CedarAlert/cedar_log.txt ===
+=== __main__ cedar_email_timeout: 10.0
+=== __main__ cedar_alert_folder: /home/cedar/CedarAlert/cedar_alert_folder
+=== __main__ start watching image directory '/home/cedar/ftp'
+=== __main__ start watching cedar_alert_folder '/home/cedar/CedarAlert/cedar_alert_folder'
+```
+When a new image arrives in the local desktop PC FTP folder structure ('cedar_ftp_path'), the 'ImageHandler()' send the image to 'cedar_detect_dual.main(opt)' via a multiprocessing pool for analysis for objects (yolov9-s-converted.pt) and fire (yolov9-s-fire-converted.pt).
+
+Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to de-couple the image from the alert functions since the alert functions depend upon a remote mail server.
 
 
