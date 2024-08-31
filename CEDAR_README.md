@@ -65,10 +65,6 @@ python train_dual.py \
 --epochs 500 \
 --close-mosaic 15
 ```
-The application can optionally write to a log file and also to a SQLite3 database.
-
-The application runs as a service which starts on boot and restarts on error. 'CedarAlert.service' and 'CedarAlert.sh' must be modified with '/home/YOURUSER'.
-
 ### Verify CedarAlert Object Detecton with yolov9-s-converted.pt (COCO model)
 
 ```
@@ -201,3 +197,6 @@ The 'alert_email_process()' connects to an email server via SSL and attaches the
 
 The 'alert_sms_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal, so you may need to change the 'alert_sms_process()' code if you have a different wireless carrieror wish to use a SMS service.
 
+The application writes to a log file and also to a SQLite3 database by default. Eithe can be disabled with 'disable_log' or 'disable_sqlite3'.
+
+The application runs as a service which starts on boot and restarts on error. 'CedarAlert.service' and 'CedarAlert.sh' must be modified with your '/home/YOURUSER'.
