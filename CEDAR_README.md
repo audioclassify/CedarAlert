@@ -16,10 +16,10 @@ sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-env
 
-# clone this repository
+# Clone Repository
 git clone https://github.com/audioclassify/CedarAlert.git
 
-# create new python env
+# Create New Python Environment
 cd ~
 mkdir -p environments
 cd environments
