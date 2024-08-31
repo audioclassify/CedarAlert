@@ -16,10 +16,10 @@ sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-env
 
-# Clone Repository
+# clone this repository
 git clone https://github.com/audioclassify/CedarAlert.git
 
-# Create New Python Environment
+# create Python environment
 cd ~
 mkdir -p environments
 cd environments
@@ -67,7 +67,7 @@ This software is covered by the [GNU General Public License v3.0](https://github
 
 ### Verify CedarAlert Object Detecton with yolov9-s-converted.pt (COCO model)
 
-'''
+```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_detect_dual.py \
 --source "./data/images/horses.jpg" \
 --weights "./yolov9-s-converted.pt"
@@ -105,9 +105,9 @@ save_img, cv2.imwrite(save_path, im0), save_path: runs/detect/CedarAlert355/hors
 image 1/1 /home/cedar/CedarAlert/data/images/horses.jpg: 448x640 5 horses,  386.3ms ./yolov9-s-converted.pt 
 Speed: 1.5ms pre-process, 386.3ms inference, 1.2ms NMS per image at shape (1, 3, 640, 640) ./yolov9-s-converted.pt
 Results saved to runs/detect/CedarAlert355
-'''
+```
 ### Verify CedarAlert Fire Detecton with yolov9-s-fire-converted.pt (Fire model)
-'''
+```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_detect_dual.py \
 --source "./fire/fire/train/images/114.jpg" \
 --weights "./fire/yolov9-s-fire-converted.pt"
@@ -177,6 +177,6 @@ save_img, cv2.imwrite(save_path, im0), save_path: runs/detect/CedarAlert353/114.
 image 1/1 /home/cedar/CedarAlert/fire/fire/train/images/114.jpg: 480x640 11 fires,  349.0ms ./fire/yolov9-s-fire-converted.pt 
 Speed: 1.4ms pre-process, 349.0ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640) ./fire/yolov9-s-fire-converted.pt
 Results saved to runs/detect/CedarAlert353
-'''
+```
 
 
