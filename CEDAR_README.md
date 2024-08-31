@@ -12,9 +12,9 @@ The CedarAlert application was developed on, and has been tested on, two Ubuntu 
 * Intel NUC5i7RYH (5th generation Intel i7 CPU) with 16 GB RAM and 500 GB SSD
 * Beelink Mini S12 (12th generation Intel N100 CPU) with 16 GB RAM and 500 GB SSD (about $160 USD)
 
-The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be set (e.g. your SMTP email server domain name 'cedar_email_server').
-
 The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) and [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection].
+
+The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be set (e.g. your SMTP email server domain name 'cedar_email_server').
 
 The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
