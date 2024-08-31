@@ -1,12 +1,49 @@
 ## CedarAlert - YOLOv9 Object and Fire Detection for IP Security Cameras in Python3
 
-The CedarAlert application was developed, tested, and is in use on an Ubuntu 22.04.4 X86_64 desktop PC.
+The CedarAlert application was developed, tested, and has been tested on two Ubuntu 22.04.4 X86_64 desktop PCs:
+* NUC5i7RYH (approx 10 year old Intel i7 CPU with 16 GB RAM and 500 GB SSD)
+* Beelink Mini S12, Intel N100 CPU with 16 GB RAM and 500 GB SSD
 
-The user is 'cedar' and the home path is '/home/cedar'. Your user and home path may likely be different.
+The file 'cedar_cars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be set (e.g. your SMTP email server domain name 'cedar_email_server').
 
-The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolo9-c.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
+The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
-The 'yolo9-cfire.pt' model (weights) is from [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection].
+The 'yolo9-s-fire-converted.pt' model (weights) is based the  [https://github.com/spacewalk01/yolov5-fire-detection]([https://github.com/spacewalk01/yolov5-fire-detection] and was created by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with this command:
+
+'''
+# clone this repository
+cd ~
+git clone https://github.com/audioclassify/CedarAlert.git
+
+# create new python env
+cd ~
+mkdir -p environments
+cd environments
+python3 -m venv CedarAlert
+source ~/environments/CedarAlert/bin/activate
+
+# CedarAlert is the python env name and the folder name
+cd ~/CedarAlert
+
+# install requirements
+pip install -r requirements.txt
+pip install -r cedar_requirements.txt
+
+# create yolo9-s-fire-converted.pt
+python train_dual.py \
+--workers 4 \
+--device cpu \
+--batch 8 \
+--data fire/fire.yaml \
+--img 640 \
+--cfg models/detect/yolov9-s.yaml \
+--weights '' \
+--name yolov9-s-c-fire \
+--hyp hyp.scratch-high.yaml \
+--min-items 0 \
+--epochs 500 \
+--close-mosaic 15
+'''
 
 The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
