@@ -1,8 +1,8 @@
 ## CedarAlert - YOLOv9 Object and Fire Detection for IP Security Cameras in Python3
 
-The CedarAlert application was developed on, and has been tested on, two Ubuntu 22.04.4 X86_64 desktop PCs:
-* NUC5i7RYH (approx 10 year old Intel i7 CPU with 16 GB RAM and 500 GB SSD)
-* Beelink Mini S12, Intel N100 CPU with 16 GB RAM and 500 GB SSD
+The CedarAlert application was developed on, and has been tested on, two Ubuntu 22.04.4 X86_64 desktop PCs *without GPUs or TPUs for AI in use*:
+* Intel NUC5i7RYH (5th generation Intel i7 CPU) with 16 GB RAM and 500 GB SSD)
+* Beelink Mini S12 (12th generation Intel N100 CPU) with 16 GB RAM and 500 GB SSD
 
 The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be set (e.g. your SMTP email server domain name 'cedar_email_server').
 
@@ -72,7 +72,7 @@ This software is covered by the [GNU General Public License v3.0](https://github
 --source "./data/images/horses.jpg" \
 --weights "./yolov9-s-converted.pt"
 
-# Output (5 horses,  386.3ms)
+# Output (5 horses, 386.3ms)
 
 YOLO 🚀 1a55998 Python-3.10.12 torch-2.4.0+cu121 CPU
 
@@ -112,7 +112,7 @@ Results saved to runs/detect/CedarAlert355
 --source "./fire/fire/train/images/114.jpg" \
 --weights "./fire/yolov9-s-fire-converted.pt"
 
-# Output (11 fires,  349.0ms)
+# Output (11 fires, 349.0ms)
 
 YOLO 🚀 1a55998 Python-3.10.12 torch-2.4.0+cu121 CPU
 
