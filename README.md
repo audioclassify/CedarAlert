@@ -196,15 +196,15 @@ Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder',
 
 The 'alert_email_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_email_process()' defaults to 3 attempts and will log failed attempts.
 
-The 'alert_sms_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal, so you may need to change the 'alert_sms_process()' code if you have a different wireless carrieror wish to use a SMS service.
+The 'alert_sms_process()' connects to an email server via SSL. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal (<yourcellnumber>@vtext.com), so you may need to change the 'alert_sms_process()' code if you have a different wireless carrier or wish to use a SMS service.
 
-The application writes to a log file and also to a SQLite3 database by default. Eithe can be disabled with 'disable_log' or 'disable_sqlite3'.
+The application writes to a log file and also to a SQLite3 database by default. Either can be disabled with 'disable_log' or 'disable_sqlite3'.
 
 The application runs as a service which starts on boot and restarts on error. 'CedarAlert.service' and 'CedarAlert.sh' must be modified with your '/home/YOURUSER'.
 
 ### FTP Server
 
-A FTP server for the security camera inage uploads can be installed as shown below. If desired, this user can also be used to run the CedarALert application.
+A FTP server for the security camera image uploads can be installed as shown below. If desired, this user can also be used to run the CedarALert application.
 
 The FTP path for image uploads (e.g. '/home/cedar/ftp/inbox') is defined by 'cedar_ftp_path' in 'cedar_vars.py'.
 
@@ -216,9 +216,10 @@ sudo mkdir /home/cedar/ftp
 sudo mkdir /home/cedar/ftp/inbox
 sudo chown -R nobody:nogroup /home/cedar/ftp
 sudo chmod -R a-w /home/cedar/ftp
+
 sudo nano /etc/vsftpd.conf
 ```
-add to lines to the end of file:
+add these lines to the end of file:
 ```
 anonymous_enable=No
 local_enable=YES
