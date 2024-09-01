@@ -204,7 +204,7 @@ Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder',
 
 The 'alert_email_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_email_process()' defaults to 3 attempts and will log failed attempts.
 
-The 'alert_sms_process()' connects to an email server via SSL. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal (<yourcellnumber>@vtext.com), so you may need to change the 'alert_sms_process()' code if you have a different wireless carrier or wish to use a SMS service.
+The 'alert_sms_process()' connects to an email server via SSL. The 'alert_sms_process()' defaults to 3 attempts and will log failed attempts. SMS messages are sent via the Verizon SMS portal ('YourCellNumber@vtext.com'), so you may need to change the 'alert_sms_process()' code if you have a different wireless carrier or wish to use a SMS service.
 
 The application writes to a log file and also to a SQLite3 database by default. Either can be disabled with 'disable_log' or 'disable_sqlite3'.
 
