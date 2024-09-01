@@ -264,7 +264,7 @@ IMG_FORMATS = 'bmp', 'dng', 'jpeg', 'jpg', 'mpo', 'png', 'tif', 'tiff', 'webp', 
 
 As stated above, this DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind, and was tested on two dfferent Ubuntu 22.04.4 X86_64 desktop computers.
 
-When time permits, support questions will be answered. Questions pertaining to OS versions other than Ubuntu 22.04.4 may be difficult to answer.
+When time permits, support questions will be answered. Questions pertaining to OS versions other than Ubuntu 22.04.4 may be impractical to answer.
 
 Please provide your feedback and help answer questions in the Issues section.
 
