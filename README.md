@@ -2,7 +2,7 @@
 
 The purpose of this DIY project is to enhance four low cost outdoor motion detecting security cameras (Amcrest IP4M-1026W) with object and fire detection in a rural high risk fire area, and to provide email alerts with the image in question plus SMS alerts via the Verizon Wireless SMS portal.
 
-SMS and email alerts are sent upon recognition of 'fire', 'person', 'bicycle', and 'bear', although the COCO dataset recognizes 80 classes of objects. The alert classes can be changed in the 'run()' code.
+Alerts are sent upon recognition of 'fire', 'person', 'bicycle', and 'bear', although the COCO dataset recognizes 80 classes of objects. The alert classes can be changed in the 'run()' code.
 
 All object recognition events and alert conditions are logged in a log file and SQLite3 database by default.
 
