@@ -246,11 +246,11 @@ sudo systemctl restart vsftpd
 sudo systemctl enable vsftpd
 sudo systemctl status vsftpd
 ```
-### Verify FTP Server from a FTP Client (e.g. FileZilla)
+### Verify FTP Server from a FTP Client
 
-You should now be able to upload files to the FTP Server folder '/home/cedar/ftp/inbox' (('cedar_ftp_path').
+You should now be able to upload files to the FTP Server folder '/home/cedar/ftp/inbox' ('cedar_ftp_path') with a FTP client (e.g. FileZilla).
 
-The CedarAlert application will analyze new image files from '/home/cedar/ftp/inbox' when the are uploaded.
+The CedarAlert application will analyze new image files from '/home/cedar/ftp/inbox' when they are uploaded.
 
 The 'ImageHandler()' is recursive, so all folders under '/home/cedar/ftp/inbox' will be included.
 
