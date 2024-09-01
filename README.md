@@ -179,6 +179,7 @@ Speed: 1.4ms pre-process, 349.0ms inference, 0.9ms NMS per image at shape (1, 3,
 Results saved to runs/detect/CedarAlert353
 ```
 ### Verify Application For Analyzing New Images from Cameras via FTP
+
 ```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_watch_object_fire_mp_pool.py
 === __main__ START at 2024-08-31_11-41-51-785716
@@ -203,11 +204,49 @@ The application runs as a service which starts on boot and restarts on error. 'C
 
 ### FTP Server
 
-An easy method to obtain a FTP server is by installing [FileZilla Server](https://filezilla-project.org/download.php?type=server). On Ubuntu 22.04.4, after you have downloaded FileZilla Server, it can be installed with:
-'''
-# check the filename of the download
-sudo dpkg -i FileZilla_Server_1.8.2_x86_64-linux-gnu.deb
-'''
-It is a good idea to specify an admin password.
+A FTP server for the security camera inage uploads can be installed as shown below. If desired, this user can also be used to run the CedarALert application.
 
-FileZilla Server can be configured via the GUI interface listed in 'Show Applications'.
+The FTP path for image uploads (e.g. '/home/cedar/ftp/inbox') is defined by 'cedar_ftp_path' in 'cedar_vars.py'.
+
+```
+sudo adduser cedar
+sudo apt install vsftpd
+sudo systemctl status vsftpd --no-pager -l
+sudo mkdir /home/cedar/ftp
+sudo mkdir /home/cedar/ftp/inbox
+sudo chown -R nobody:nogroup /home/cedar/ftp
+sudo chmod -R a-w /home/cedar/ftp
+sudo nano /etc/vsftpd.conf
+```
+add to lines to the end of file:
+```
+anonymous_enable=No
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+user_sub_token=$USER
+local_root=/home/$USER/ftp
+userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+```
+The next commands are:
+```
+echo "cedar" | sudo tee -a /etc/vsftpd.userlist
+sudo systemctl restart vsftpd
+sudo systemctl enable vsftpd
+sudo systemctl status vsftpd
+```
+### Verify FTP Server from a FTP Client (e.g. FileZilla)
+
+You should now be able to upload files to the FTP Server folder '/home/cedar/ftp/inbox' (('cedar_ftp_path').
+
+The CedarAlert application will analyze new image files from '/home/cedar/ftp/inbox' when the are uploaded.
+
+The 'ImageHandler()' is recursive, so all folders under '/home/cedar/ftp/inbox' will be included.
+
+If you have image file types other than '.jpg', the code in 'ImageHandler()' can be changed to allow other formats. The supported image formats are defined in 'utils/dataloads.py':
+
+```
+IMG_FORMATS = 'bmp', 'dng', 'jpeg', 'jpg', 'mpo', 'png', 'tif', 'tiff', 'webp', 'pfm'  # include image suffixes
+```
