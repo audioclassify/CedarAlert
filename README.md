@@ -198,6 +198,8 @@ Results saved to runs/detect/CedarAlert353
 ```
 When a new image arrives in the local desktop PC FTP folder structure ('cedar_ftp_path'), the 'ImageHandler()' sends the image to 'cedar_detect_dual.main(opt)' via a multiprocessing pool for analysis for objects (yolov9-s-converted.pt) and fire (yolov9-s-fire-converted.pt).
 
+You can test this by moving a '.jpg' image file to any folder within the 'cedar_ftp_path' folder.
+
 Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to decouple the image from the alert functions since the alert functions depend upon a remote mail server.
 
 The 'alert_email_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_email_process()' defaults to 3 attempts and will log failed attempts.
