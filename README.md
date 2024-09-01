@@ -2,6 +2,12 @@
 
 The purpose of this DIY project is to enhance four low cost outdoor motion detecting security cameras (Amcrest IP4M-1026W) with object and fire detection in a rural high risk fire area, and to provide email alerts with the image in question plus SMS alerts via the Verizon Wireless SMS portal.
 
+Alerts are send upon recognition of 'fire', 'person', 'bicycle', and 'bear', although the COCO dataset recognizes 80 classes of objects. The alert classes can be changed in the 'run()' code.
+
+All object recognition events and alert conditions are logged in a log file and SQLite3 database by default.
+
+In order to avoid too many alerts in a short period of time, alerts are sent no more frequently that 15 minutes, as defined by 'cedar_alert_seconds'. The Amcrest security cameras have a free Android and iOS app, so the cameras can be viewed in real-time whenever an alert is received.
+
 The four Amcrest cameras are configured to take three photos two seconds apart at each motion event, and send the images via FTP to a local desktop PC for AI analysis and storage.
 
 This DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind.
@@ -251,3 +257,13 @@ If you have image file types other than '.jpg', the code in 'ImageHandler()' can
 ```
 IMG_FORMATS = 'bmp', 'dng', 'jpeg', 'jpg', 'mpo', 'png', 'tif', 'tiff', 'webp', 'pfm'  # include image suffixes
 ```
+### Support and Improvements
+
+As stated above, this DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind, and was tested on two dfferent Ubuntu 22.04.4 X86_64 desktop computers.
+
+When time permits, support questions will be answered. Questions pertaining to OS versions other than Ubuntu 22.04.4 may be difficult to answer.
+
+Please provide your feedback and help answer questions in the Issues section.
+
+Please also provide code improvements via a repository fork.
+
