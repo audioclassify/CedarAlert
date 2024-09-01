@@ -218,6 +218,7 @@ The FTP path for image uploads (e.g. '/home/cedar/ftp/inbox') is defined by 'ced
 
 ```
 sudo adduser cedar
+# username 'cedar' and the password you define will be the FTP server credentials for image file uploads
 sudo apt install vsftpd
 sudo systemctl status vsftpd --no-pager -l
 sudo mkdir /home/cedar/ftp
