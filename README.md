@@ -212,7 +212,7 @@ The application runs as a service which starts on boot and restarts on error. 'C
 
 ### FTP Server
 
-A FTP server for the security camera image uploads can be installed as shown below. If desired, this user can also be used to run the CedarALert application.
+A FTP server for the security camera image uploads can be installed as shown below. If desired, this user can also be used to run the CedarAlert application.
 
 The FTP path for image uploads (e.g. '/home/cedar/ftp/inbox') is defined by 'cedar_ftp_path' in 'cedar_vars.py'.
 
