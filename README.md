@@ -190,7 +190,7 @@ Results saved to runs/detect/CedarAlert353
 === __main__ start watching image directory '/home/cedar/ftp'
 === __main__ start watching cedar_alert_folder '/home/cedar/CedarAlert/cedar_alert_folder'
 ```
-When a new image arrives in the local desktop PC FTP folder structure ('cedar_ftp_path'), the 'ImageHandler()' send the image to 'cedar_detect_dual.main(opt)' via a multiprocessing pool for analysis for objects (yolov9-s-converted.pt) and fire (yolov9-s-fire-converted.pt).
+When a new image arrives in the local desktop PC FTP folder structure ('cedar_ftp_path'), the 'ImageHandler()' sends the image to 'cedar_detect_dual.main(opt)' via a multiprocessing pool for analysis for objects (yolov9-s-converted.pt) and fire (yolov9-s-fire-converted.pt).
 
 Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to decouple the image from the alert functions since the alert functions depend upon a remote mail server.
 
