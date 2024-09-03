@@ -262,7 +262,7 @@ IMG_FORMATS = 'bmp', 'dng', 'jpeg', 'jpg', 'mpo', 'png', 'tif', 'tiff', 'webp', 
 ```
 ### Maintenance Intervals
 
-The 'maintenance' section in 'cedar_vars.py' defines maintenace intervals for the removeal of the oldest:
+The 'maintenance' section in 'cedar_vars.py' defines maintenace intervals for the removal of the oldest:
 * log entries
 * ftp images from the security cameras
 * 'runs' images with boxes and labels after inference
