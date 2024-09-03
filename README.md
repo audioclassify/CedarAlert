@@ -1,4 +1,4 @@
-## CedarAlert - DIY YOLOv9 Object and Fire Detection for IP Security Cameras in Python
+## CedarAlert - DIY Object and Fire Detection for IP Security Cameras in Python
 
 The purpose of this DIY project is to enhance four low cost outdoor motion detecting security cameras (Amcrest IP4M-1026W) with object and fire detection in a rural high risk fire area, and to provide email alerts with the image in question plus SMS alerts via the Verizon Wireless SMS portal.
 
