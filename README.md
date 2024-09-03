@@ -212,7 +212,7 @@ The application runs as a service which starts on boot and restarts on error. 'C
 
 ### FTP Server
 
-A FTP server for the security camera image uploads can be installed as shown below. If desired, this user can also be used to run the CedarAlert application.
+A FTP server for the security camera image uploads can be installed as shown below. If desired, the 'cedar' user can also be used to run the CedarAlert application.
 
 The FTP path for image uploads (e.g. '/home/cedar/ftp/inbox') is defined by 'cedar_ftp_path' in 'cedar_vars.py'.
 
@@ -260,6 +260,14 @@ If you have image file types other than '.jpg', the code in 'ImageHandler()' can
 ```
 IMG_FORMATS = 'bmp', 'dng', 'jpeg', 'jpg', 'mpo', 'png', 'tif', 'tiff', 'webp', 'pfm'  # include image suffixes
 ```
+### Maintenance Intervals
+
+The 'maintenance' section in 'cedar_vars.py' defines maintenace intervals for the removeal of the oldest:
+* log entries
+* ftp images from the security cameras
+* 'runs' images with boxes and labels after inference
+* SQLite3 database rows
+
 ### Support and Improvements
 
 As stated above, this DIY application is provided as a free open source codebase as a courtesy without any promise of support nor guarantee of any kind, and was tested on two dfferent Ubuntu 22.04.4 X86_64 desktop computers.
