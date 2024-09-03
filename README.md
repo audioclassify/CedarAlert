@@ -200,7 +200,7 @@ When a new image arrives in the local desktop PC FTP folder structure ('cedar_ft
 
 You can test this by moving a '.jpg' image file to any folder within the 'cedar_ftp_path' folder.
 
-Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to decouple the image from the alert functions since the alert functions depend upon a remote mail server.
+Whan an alert condition is found, a JSON object is sent to 'cedar_alert_folder', which acts as a semiphore in order to decouple the image AI inferences from the alert functions since the alert functions depend upon a remote mail server.
 
 The 'alert_email_process()' connects to an email server via SSL and attaches the image with caused the alert. The 'alert_email_process()' defaults to 3 attempts and will log failed attempts.
 
