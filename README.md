@@ -4,7 +4,7 @@ The purpose of this DIY project is to enhance four low cost outdoor motion detec
 
 Alerts are sent upon recognition of 'fire', 'person', 'bicycle', and 'bear', although the COCO dataset recognizes 80 classes of objects. The alert conditions can be changed in the 'run()' code.
 
-All object recognition events and alert conditions are logged in a log file and SQLite3 database by default.
+All object recognition events, alert conditions, and images with no objects detected are logged into a JSON based log file and SQLite3 database by default.
 
 In order to avoid too many alerts in a short period of time, alerts are sent no more frequently that 15 minutes, as defined by 'cedar_alert_seconds'. The Amcrest security cameras have a free Android and iOS app, so the video streams from the cameras can be viewed in real-time whenever an alert is received.
 
