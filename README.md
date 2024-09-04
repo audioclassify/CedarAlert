@@ -24,8 +24,7 @@ The file 'cedar_vars.py' defines variables and creates a JSON object. The values
 
 The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
-The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com/spacewalk01/yolov5-fire-detection](https://github.com/spacewalk01/yolov5-fire-detection) and was created by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with these commands:
-
+To install this repository please run the commands below with a Linux user with 'sudo' rights *without a password*. See [Method 2: Edit the sudoers file](https://learnubuntu.com/run-sudo-without-password/).
 ```
 cd ~
 sudo apt update
@@ -56,20 +55,7 @@ python -V
 pip -V
 # pip 22.0.2 from /home/cedar/environments/CedarAlert/lib/python3.10/site-packages/pip (python 3.10)
 
-# create yolo9-s-fire-converted.pt
-python train_dual.py \
---workers 4 \
---device cpu \
---batch 8 \
---data fire/fire.yaml \
---img 640 \
---cfg models/detect/yolov9-s.yaml \
---weights '' \
---name yolov9-s-c-fire \
---hyp hyp.scratch-high.yaml \
---min-items 0 \
---epochs 500 \
---close-mosaic 15
+
 ```
 ### Verify CedarAlert Object Detecton with yolov9-s-converted.pt (COCO model)
 
@@ -184,6 +170,31 @@ image 1/1 /home/cedar/CedarAlert/fire/fire/train/images/114.jpg: 480x640 11 fire
 Speed: 1.4ms pre-process, 349.0ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640) ./fire/yolov9-s-fire-converted.pt
 Results saved to runs/detect/CedarAlert353
 ```
+### How the Fire Detection Weights (Model) Were Trained (Information Only - Already Completed)
+
+The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com/spacewalk01/yolov5-fire-detection](https://github.com/spacewalk01/yolov5-fire-detection) and was trained by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with these commands:
+
+```
+# how to train the yolo9-s-fire-converted.pt (information only - already completed)
+
+cd ~/CedarAlert # with the 'CedarAlert' python python activated
+
+python train_dual.py \
+--workers 4 \
+--device cpu \
+--batch 8 \
+--data fire/fire.yaml \
+--img 640 \
+--cfg models/detect/yolov9-s.yaml \
+--weights '' \
+--name yolov9-s-c-fire \
+--hyp hyp.scratch-high.yaml \
+--min-items 0 \
+--epochs 500 \
+--close-mosaic 15
+
+```
+
 ### Verify Application For Analyzing New Images from Cameras via FTP
 
 ```
