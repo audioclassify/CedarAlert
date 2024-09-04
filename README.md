@@ -179,7 +179,7 @@ The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com
 
 cd ~/CedarAlert # with the 'CedarAlert' python python activated
 
-python train_dual.py \
+(CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python train_dual.py \
 --workers 4 \
 --device cpu \
 --batch 8 \
