@@ -54,11 +54,8 @@ python -V
 
 pip -V
 # pip 22.0.2 from /home/cedar/environments/CedarAlert/lib/python3.10/site-packages/pip (python 3.10)
-
-
 ```
 ### Verify CedarAlert Object Detecton with yolov9-s-converted.pt (COCO model)
-
 ```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_detect_dual.py \
 --source "./data/images/horses.jpg" \
@@ -173,7 +170,6 @@ Results saved to runs/detect/CedarAlert353
 ### How the Fire Detection Weights (Model) Were Trained (Information Only - Already Completed)
 
 The 'yolo9-s-fire-converted.pt' model (weights) is based the [https://github.com/spacewalk01/yolov5-fire-detection](https://github.com/spacewalk01/yolov5-fire-detection) and was trained by from the 'datasets' folder using 'train_dual.py' from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) in a python env with these commands:
-
 ```
 # how to train the yolo9-s-fire-converted.pt (information only - already completed)
 
@@ -192,13 +188,14 @@ cd ~/CedarAlert # with the 'CedarAlert' python python activated
 --min-items 0 \
 --epochs 500 \
 --close-mosaic 15
-
 ```
-
 ### Verify Application For Analyzing New Images from Cameras via FTP
-
 ```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_watch_object_fire_mp_pool.py
+cedar_vars_json_obj(): after check, kill_now: False
+cedar_vars_json_obj(): after check, kill_now: False
+cedar_vars_json_obj(): after check, kill_now: False
+cedar_vars_json_obj(): after check, kill_now: False
 === __main__ START at 2024-08-31_11-41-51-785716
 === __main__ cedar_ftp_path: /home/cedar/ftp
 === __main__ cedar_log: /home/cedar/CedarAlert/cedar_log.txt ===
