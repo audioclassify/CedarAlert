@@ -29,10 +29,10 @@ To install this repository please run the commands below with a Linux user with 
 cd ~
 sudo apt update
 sudo apt upgrade
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-env git
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv git
 
-# clone this repository
-git clone https://github.com/audioclassify/CedarAlert.git
+# clone this repository, see [https://github.com/cli/cli/blob/trunk/docs/install_linux.md](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+gh repo clone audioclassify/CedarAlert
 
 # create Python environment
 cd ~
