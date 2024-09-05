@@ -35,6 +35,8 @@ sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pi
 
 # clone this repository
 gh repo clone audioclassify/CedarAlert
+# or
+git clone [https://github.com/audioclassify/CedarAlert.git](https://github.com/audioclassify/CedarAlert.git)
 
 # create Python environment
 cd ~
