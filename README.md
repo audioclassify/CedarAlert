@@ -34,7 +34,7 @@ sudo apt upgrade
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv git
 
 # clone this repository
-git clone [https://github.com/audioclassify/CedarAlert.git](https://github.com/audioclassify/CedarAlert.git) # or gh repo clone audioclassify/CedarAlert
+git clone https://github.com/audioclassify/CedarAlert.git # or gh repo clone audioclassify/CedarAlert
 
 # create Python environment
 cd ~
