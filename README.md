@@ -31,7 +31,7 @@ The 'gh' CLI install instructions are at [https://github.com/cli/cli/blob/trunk/
 cd ~
 sudo apt update
 sudo apt upgrade
-sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv git
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv sqlite3 git
 
 # clone this repository
 git clone https://github.com/audioclassify/CedarAlert.git # or gh repo clone audioclassify/CedarAlert
