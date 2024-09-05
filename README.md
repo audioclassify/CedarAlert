@@ -25,13 +25,15 @@ The file 'cedar_vars.py' defines variables and creates a JSON object. The values
 The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
 To install this repository please run the commands below with a Linux user with 'sudo' rights *without a password*. See [Method 2: Edit the sudoers file](https://learnubuntu.com/run-sudo-without-password/).
+
+The 'gh' CLI install instructions are at [https://github.com/cli/cli/blob/trunk/docs/install_linux.md](https://github.com/cli/cli/blob/trunk/docs/install_linux.md).
 ```
 cd ~
 sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip python3-venv git
 
-# clone this repository, see [https://github.com/cli/cli/blob/trunk/docs/install_linux.md](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
+# clone this repository
 gh repo clone audioclassify/CedarAlert
 
 # create Python environment
