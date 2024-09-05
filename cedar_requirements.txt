@@ -1,0 +1,11 @@
+# cedar_requirements.txt
+#
+# cd ~/CedarAlert
+# source ~/environments/CedarAlert/bin/activate
+#
+# Usage: pip install -r cedar_requirements.txt
+#
+watchdog
+ftfy
+
+

@@ -1,0 +1,19 @@
+# copy to /etc/systemd/system/CedarAlert.service
+# sudo systemctl daemon-reload
+# sudo systemctl start CedarAlert.service
+# sudo systemctl status CedarAlert.service
+# sudo systemctl stop CedarAlert.service
+[Unit]
+Description=CedarAlert
+After=multi-user.target
+
+[Service]
+Type=simple
+User=cedar
+WorkingDirectory=/home/cedar/CedarAlert
+Restart=always
+RestartSec=10
+ExecStart=/bin/bash /home/cedar/CedarAlert/CedarAlert.sh
+
+[Install]
+WantedBy=multi-user.target
