@@ -194,6 +194,9 @@ cd ~/CedarAlert # with the 'CedarAlert' python python activated
 ### Verify Application For Analyzing New Images from Cameras via FTP
 ```
 (CedarAlert) cedar@NUC5i7RYH:~/CedarAlert$ python cedar_watch_object_fire_mp_pool.py
+
+# output
+
 cedar_vars_json_obj(): after check, kill_now: False
 cedar_vars_json_obj(): after check, kill_now: False
 cedar_vars_json_obj(): after check, kill_now: False
