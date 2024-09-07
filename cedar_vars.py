@@ -88,7 +88,7 @@ def cedar_vars_json_obj():
 	#
 	
 	# cj['test1']						= ""
-	# cj['test2']						= "CHANGEME"
+	# cj['test2']						= "UPDATEME"
 
 	# cj['cedar_maint_max']			= int(4)
 	# cj['cedar_log_max']				= int(10)
@@ -109,7 +109,7 @@ def cedar_vars_json_obj():
 		
 		#print("cedar_vars_json_obj(): k: %s, v: %s" % (k, v))
 		
-		if v == "" or v == "CHANGEME":
+		if v == "" or v == "UPDATEME":
 			kill_now = True
 			print("cedar_vars_json_obj(): ERROR k: %s, v: %s" % (k, v))
 		else:
