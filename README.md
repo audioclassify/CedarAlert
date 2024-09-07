@@ -232,12 +232,12 @@ sudo adduser cedar
 sudo apt install vsftpd
 sudo systemctl status vsftpd --no-pager -l
 # create ftp/inbox and set owners and permissions
-mkdir ~/ftp
+mkdir /home/cedar/ftp
 sudo chown nobody:nogroup /home/cedar/ftp
-sudo chmod a-w ~/ftp
-sudo ls -la ~/ftp
-sudo mkdir ~/ftp/inbox
-sudo chown -R cedar:cedar ~ftp/inbox
+sudo chmod a-w /home/cedar/ftp
+sudo ls -la /home/cedar/ftp
+sudo mkdir /home/cedar/ftp/inbox
+sudo chown -R cedar:cedar /home/cedar/ftp/inbox
 # edit /etc/vsftpd.conf
 sudo nano /etc/vsftpd.conf
 ```
