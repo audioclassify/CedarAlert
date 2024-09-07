@@ -6,7 +6,7 @@ Alerts are sent upon recognition of 'fire', 'person', 'bicycle', and 'bear', alt
 
 All object recognition events, alert conditions, and images with no objects detected are logged into a JSON based log file and SQLite3 database by default.
 
-In order to avoid too many alerts in a short period of time, alerts are sent no more frequently that 15 minutes, as defined by 'cedar_alert_seconds'. The Amcrest security cameras have a free Android and iOS app, so the video streams from the cameras can be viewed in real-time whenever an alert is received.
+In order to avoid too many alerts in a short period of time, alerts are sent no more frequently than 15 minutes, as defined by 'cedar_alert_seconds'. The Amcrest security cameras have a free Android and iOS app, so the video streams from the cameras can be viewed in real-time whenever an alert is received.
 
 The four Amcrest cameras are configured to take three photos two seconds apart at each motion event, and send the images via FTP to a local desktop PC for AI analysis and storage.
 
@@ -231,11 +231,14 @@ sudo adduser cedar
 # username 'cedar' and the password you define will be the FTP server credentials for image file uploads
 sudo apt install vsftpd
 sudo systemctl status vsftpd --no-pager -l
-sudo mkdir /home/cedar/ftp
-sudo mkdir /home/cedar/ftp/inbox
-sudo chown -R nobody:nogroup /home/cedar/ftp
-sudo chmod -R a-w /home/cedar/ftp
-
+# create ftp/inbox and set owners and permissions
+mkdir ~/ftp
+sudo chown nobody:nogroup /home/cedar/ftp
+sudo chmod a-w ~/ftp
+sudo ls -la ~/ftp
+sudo mkdir ~/ftp/inbox
+sudo chown -R cedar:cedar ~ftp/inbox
+# edit /etc/vsftpd.conf
 sudo nano /etc/vsftpd.conf
 ```
 add these lines to the end of file:
