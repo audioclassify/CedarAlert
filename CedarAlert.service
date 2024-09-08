@@ -1,6 +1,7 @@
 # copy to /etc/systemd/system/CedarAlert.service
 # sudo systemctl daemon-reload
 # sudo systemctl start CedarAlert.service
+# sudo systemctl enable CedarAlert.service
 # sudo systemctl status CedarAlert.service
 # sudo systemctl stop CedarAlert.service
 [Unit]
