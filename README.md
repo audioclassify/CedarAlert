@@ -20,7 +20,7 @@ The CedarAlert application was developed on, and has been tested on, two Ubuntu 
 
 The CedarAlert specific files start with 'cedar_' to distinguish them from files from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9) and [https://github.com/spacewalk01/yolov5-fire-detection](https://github.com/spacewalk01/yolov5-fire-detection).
 
-The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'CHANGEME' ***must*** be changed (e.g. your SMTP email server domain name 'cedar_email_server') and no empty values are allowed. No CedarAlert processes will run with a value of 'CHANGEME' or an empty value, including the CedarAlert.service.
+The file 'cedar_vars.py' defines variables and creates a JSON object. The values with 'UPDATEME' ***must*** be changed (e.g. your SMTP email server domain name 'cedar_email_server') and no empty values are allowed. No CedarAlert processes will run with a value of 'UPDATEME' or an empty value, including the CedarAlert.service.
 
 The YOLOv9 inference code is based upon 'detect_dual.py' and 'yolov9-s-converted.pt' model (weights) from [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9).
 
