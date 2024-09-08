@@ -336,7 +336,8 @@ def parse_opt():
     
     #parser.add_argument('--conf-thres', type=float, default=0.25, help='confidence threshold')
     #parser.add_argument('--conf-thres', type=float, default=0.40, help='confidence threshold')
-    parser.add_argument('--conf-thres', type=float, default=0.50, help='confidence threshold')
+    #parser.add_argument('--conf-thres', type=float, default=0.50, help='confidence threshold')
+    parser.add_argument('--conf-thres', type=float, default=0.70, help='confidence threshold')
     
     parser.add_argument('--iou-thres', type=float, default=0.45, help='NMS IoU threshold')
     parser.add_argument('--max-det', type=int, default=1000, help='maximum detections per image')
