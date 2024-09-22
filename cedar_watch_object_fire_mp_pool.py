@@ -519,7 +519,8 @@ def alert_sms_process(email_data, attempts=int(0)):
 	j = json.loads(email_data)
 	# print("alert_sms_process() j: %s, type(j): %s" % (j, type(j)))
 	
-	subject 			= "alert_sms_process(): " + j['alert'] + ", conf: " + j['conf'] + "\n\n" + ts_jpg(j['source'])
+	# subject 			= "alert_sms_process(): " + j['alert'] + ", conf: " + j['conf'] + "\n\n" + ts_jpg(j['source'])
+	subject 			= "alert_sms_process(): " + j['alert'] + ", conf: " + j['conf'] + " " + ts_jpg(j['source'])
 	# for test only with cedar_ftp_path_test
 	# subject 			= "alert_sms_process(): " + j['alert'] + ", conf: " + j['conf'] + "\n\n" + ts_now() + ".jpg"
 	# print("alert_sms_process() subject: %s" % subject)
